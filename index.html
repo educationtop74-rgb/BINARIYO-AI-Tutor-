@@ -91,7 +91,42 @@ transform:translateY(-40px);
         <a href="#" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px;">Home</a>
         <a href="#" style="color: white; text-decoration: none; font-weight: bold; font-size: 16px;">AI Tutor</a>
         <a href="#" style="color: #00D4FF; text-decoration: none; border: 1px solid #00D4FF; padding: 6px 20px; border-radius: 20px; font-weight: bold; font-size: 16px;">Join</a>
-    </div>
+    </div>   
+
+    <div id="chatbot" style="margin-top: 50px; text-align: center; color: white;">
+        <div id="chat-window" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; width: 80%; margin: 0 auto; min-height: 150px; border: 1px solid #00D4FF;">
+            <p> እኔ BINARIYO AI እባላለሁ! ምን ላግዝህ?</p>
+        </div>
+        <input type="text" id="user-input" placeholder="ጥያቄህን እዚህ ፃፍ..." style="padding: 10px; width: 60%; margin-top: 20px; border-radius: 20px; border: none; color: black;">
+        <button onclick="askAI()" style="padding: 10px 20px; background: #00D4FF; border: none; border-radius: 20px; cursor: pointer; font-weight: bold;">ጠይቅ</button>
+    </div>   <script>
+    async function askAI() {
+        const input = document.getElementById('user-input').value;
+        const chatWindow = document.getElementById('chat-window');
+        
+        if (!input) return; // ባዶ ከሆነ ምንም አታድርግ
+
+        // የተጠቃሚውን ጥያቄ ማሳያ
+        chatWindow.innerHTML += `<p><b>አንተ:</b> ${input}</p>`;
+        chatWindow.innerHTML += `<p><i>BINARIYO:</i> እያሰብኩ ነው...</p>`;
+        
+        try {
+            // ወደ Backend ጥያቄ መላኪያ
+            const response = await fetch('/api/chat', { 
+                method: 'POST',
+                body: JSON.stringify({ message: input })
+            });
+            const data = await response.json();
+            
+            // የ AI መልስ ማሳያ
+            chatWindow.innerHTML += `<p><i>BINARIYO:</i> ${data.reply}</p>`;
+        } catch (error) {
+            chatWindow.innerHTML += `<p style="color:red;">ስህተት ተፈጥሯል፣ እንደገና ሞክር።</p>`;
+        }
+    
+    </script>
+    </body>
+
 </nav>
 
 
