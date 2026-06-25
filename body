@@ -1,8 +1,0 @@
-<nav style="display: flex; justify-content: space-between; align-items: center; padding: 20px 10%; position: absolute; width: 100%; top: 0; z-index: 10;">
-    <h2 style="color: #00D4FF; font-size: 24px; letter-spacing: 2px;">BINARIYO ✨</h2>
-    <div>
-        <a href="#" style="color: white; text-decoration: none; margin-left: 15px; font-weight: bold;">Home</a>
-        <a href="#" style="color: white; text-decoration: none; margin-left: 15px; font-weight: bold;">AI Tutor</a>
-        <a href="#" style="color: #00D4FF; text-decoration: none; margin-left: 15px; border: 1px solid #00D4FF; padding: 5px 15px; border-radius: 20px;">Join</a>
-    </div>
-</nav>
