@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BINARIYO AI Tutor</title>
+</head>
+<body style="background-color: #0a0a0a; color: white; font-family: sans-serif;">
+
+    <nav style="display: flex; justify-content: center; padding: 20px;">
+        <h2 style="color: #00D4FF;">BINARIYO ✨</h2>
+    </nav>
+
+    <div class="hero" style="text-align: center; margin-top: 50px;">
+        <h1>BINARIYO AI</h1>
+        <p>Future Learning Platform Powered by AI</p>
+    </div>
+
+    <div id="chatbot" style="margin-top: 50px; text-align: center;">
+        <div id="chat-window" style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; width: 80%; margin: 0 auto; border: 1px solid #00D4FF;">
+            <p>BINARIYO AI እዚህ አለ! ምን ላግዝህ?</p>
+        </div>
+        <input type="text" id="user-input" placeholder="ጥያቄህን እዚህ ፃፍ..." style="padding: 10px; width: 60%; margin-top: 20px; border-radius: 20px; border: none;">
+        <button onclick="askAI()" style="padding: 10px 20px; background: #00D4FF; border: none; border-radius: 20px; cursor: pointer;">ጠይቅ</button>
+    </div>
+
+    <script>
+        async function askAI() {
+            const input = document.getElementById('user-input').value;
+            const chatWindow = document.getElementById('chat-window');
+            if (!input) return;
+            
+            chatWindow.innerHTML += `<p><b>አንተ:</b> ${input}</p>`;
+            
+            try {
+                const response = await fetch('/api/chat', { 
+                    method: 'POST',
+                    body: JSON.stringify({ message: input })
+                });
+                const data = await response.json();
+                chatWindow.innerHTML += `<p><i>BINARIYO:</i> ${data.reply}</p>`;
+            } catch (error) {
+                chatWindow.innerHTML += `<p style="color:red;">ስህተት ተፈጥሯል</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
