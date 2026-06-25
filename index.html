@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BINARIYO AI Tutor</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#050510;
+color:white;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.hero{
+text-align:center;
+z-index:2;
+}
+
+h1{
+font-size:4rem;
+background:linear-gradient(90deg,#00D4FF,#8B5CF6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+p{
+margin-top:15px;
+font-size:1.2rem;
+opacity:.8;
+}
+
+button{
+margin-top:25px;
+padding:15px 35px;
+border:none;
+border-radius:40px;
+background:linear-gradient(90deg,#00D4FF,#8B5CF6);
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.circle{
+position:absolute;
+border-radius:50%;
+filter:blur(100px);
+opacity:.5;
+animation:float 8s infinite ease-in-out;
+}
+
+.c1{
+width:300px;
+height:300px;
+background:#00D4FF;
+top:10%;
+left:10%;
+}
+
+.c2{
+width:300px;
+height:300px;
+background:#8B5CF6;
+bottom:10%;
+right:10%;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-40px);
+}
+}
+</style>
+
+</head>
+<body>
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+<div class="hero">
+<h1>BINARIYO AI</h1>
+<p>Future Learning Platform Powered by AI</p>
+<button>Launch AI Tutor</button>
+</div>
+
+</body>
+</html>
